@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension version="2.5" type="plugin" group="vmpayment" method="upgrade">
+	<name>VMPAYMENT_CECA_JE</name>
+	<author>José A. Cidre Bardelás</author>
+	<authorEmail>info@joomlaempresa.es</authorEmail>
+	<authorUrl>http://www.joomlaempresa.es</authorUrl>
+	<creationDate>07-2012</creationDate>
+	<copyright>Copyright (C) 2012-2014 José A. Cidre Bardelás and Joomla Empresa - All Rights Reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
+	<version>2.0.4</version>
+	<description>VMPAYMENT_CECA_DESC</description>
+	<files>
+		<filename plugin="ceca">ceca.php</filename>
+		<filename plugin="ceca">index.html</filename>
+		<folder>ceca</folder>
+	</files>
+	<languages folder="idiomas">
+		<language tag="en-GB">en-GB.plg_vmpayment_ceca.ini</language>
+		<language tag="en-GB">en-GB.plg_vmpayment_ceca.sys.ini</language>
+		<language tag="gl-ES">gl-ES.plg_vmpayment_ceca.ini</language>
+		<language tag="gl-ES">gl-ES.plg_vmpayment_ceca.sys.ini</language>
+		<language tag="ca-ES">ca-ES.plg_vmpayment_ceca.ini</language>
+		<language tag="ca-ES">ca-ES.plg_vmpayment_ceca.sys.ini</language>
+		<language tag="es-ES">es-ES.plg_vmpayment_ceca.ini</language>
+		<language tag="es-ES">es-ES.plg_vmpayment_ceca.sys.ini</language>
+	</languages>
+	<vmconfig>
+		<fields name="params" addfieldpath="/administrator/components/com_virtuemart/fields" />
+		<fields name="params" addfieldpath="/plugins/vmpayment/ceca/ceca/fields">
+			<fieldset name="basic">
+				<field type="vmtitle" default="VMPAYMENT_CECA_TITLE_INFO"/>
+			<field type="vmjpluginwarning" />
+			<field type="cecainstrucoes" label="" default="VMPAYMENT_CECA_DESC" />
+			<field type="cecainstrucoes" label="" default="VMPAYMENT_CECA_PAYMENT_INSTRUCOES" />
+			</fieldset>
+			<fieldset name="template">
+				<field type="vmtitle" default="VMPAYMENT_CECA_TITLE_ASPECT"/>
+				<field name="payment_logos" type="vmfiles" scope="com_virtuemart" label="VMPAYMENT_CECA_LOGOS" description="VMPAYMENT_CECA_LOGOS_DET" directory="/images/stories/virtuemart/payment" default="default" hide_default="1" hide_none="1" stripext="0" exclude="^_|html$" />
+			</fieldset>
+			<fieldset name="payment">
+				<field type="vmtitle" default="VMPAYMENT_CECA_TITLE_PAYMENT"/>
+			<field type="text" name="ceca_tpv_url" size="50" label="VMPAYMENT_CECA_URL_TPVV" default="" description="VMPAYMENT_CECA_URL_TPVV_DET" />
+			<field type="text" name="ceca_codigo_loja" size="12" label="VMPAYMENT_CECA_CODIGO_LOJA" default="" description="VMPAYMENT_CECA_CODIGO_LOJA_DET" />
+			<field type="text" name="ceca_codigo_caixa" size="12" label="VMPAYMENT_CECA_CODIGO_CAIXA" default="" description="VMPAYMENT_CECA_CODIGO_CAIXA_DET" />
+			<field type="text" name="ceca_terminal" size="12" label="VMPAYMENT_CECA_TERMINAL" default="" description="VMPAYMENT_CECA_TERMINAL_DET" />
+			<field type="text" name="ceca_exponhente" size="6" label="VMPAYMENT_CECA_EXPONHENTE" default="2" description="VMPAYMENT_CECA_EXPONHENTE_DET" />
+			<field type="text" name="ceca_divisa" size="6" label="VMPAYMENT_CECA_DIVISA" default="978" description="VMPAYMENT_CECA_DIVISA_DET" />
+			<field type="text" name="ceca_cifrado" size="6" label="VMPAYMENT_CECA_CIFRADO" default="SHA1" description="VMPAYMENT_CECA_CIFRADO_DET" />
+			<field name="ceca_idioma" type="list" default="1" label="VMPAYMENT_CECA_IDIOMA" description="VMPAYMENT_CECA_IDIOMA_DET">
+				<option value="1">VMPAYMENT_CECA_CASTELAO</option>
+				<option value="2">VMPAYMENT_CECA_CATALAO</option>
+				<option value="3">VMPAYMENT_CECA_EUSKERA</option>
+				<option value="4">VMPAYMENT_CECA_GALEGO</option>
+				<option value="5">VMPAYMENT_CECA_VALENCIANO</option>
+				<option value="6">VMPAYMENT_CECA_INGLES</option>
+				<option value="7">VMPAYMENT_CECA_FRANCES</option>
+				<option value="8">VMPAYMENT_CECA_ALEMAO</option>
+				<option value="9">VMPAYMENT_CECA_PORTUGUES</option>
+				<option value="10">VMPAYMENT_CECA_ITALIANO</option>
+			</field>
+			<field type="text" name="ceca_pagamento_suportado" size="6" label="VMPAYMENT_CECA_PAGAMENTO_SUPORTADO" default="SSL" description="VMPAYMENT_CECA_PAGAMENTO_SUPORTADO_DET" />
+			<field type="textarea" name="ceca_descricom_produtos" rows="5" cols="20" label="VMPAYMENT_CECA_DESCRICOM_PRODUTOS" default="" description="VMPAYMENT_CECA_DESCRICOM_PRODUTOS_DET" class="width70" />
+			<field type="cecachave" name="ceca_chave" size="20" label="VMPAYMENT_CECA_CHAVE" default="" description="VMPAYMENT_CECA_CHAVE_DET" />
+			<field name="ceca_encaminhar" type="radio" default="0" label="VMPAYMENT_CECA_ENCAMINHAR" description="VMPAYMENT_CECA_ENCAMINHAR_DET">
+				<option value="0">VMPAYMENT_CECA_NO</option>
+				<option value="1">VMPAYMENT_CECA_YES</option>
+			</field>
+			</fieldset>
+			<fieldset name="restrictions">
+				<field type="vmtitle" default="VMPAYMENT_CECA_TITLE_RESTRICTIONS"/>
+			<field name="payment_currency" type="vmacceptedcurrency" default="" label="VMPAYMENT_CECA_CURRENCY" description="VMPAYMENT_CECA_CURRENCY_DET" />
+			<field name="countries" type="vmcountries" scope="com_virtuemart" default="" label="VMPAYMENT_CECA_COUNTRIES" description="VMPAYMENT_CECA_COUNTRIES_DET" />
+			<field name="min_amount" type="text" label="VMPAYMENT_CECA_MIN_AMOUNT" description="VMPAYMENT_CECA_MIN_AMOUNT_EXPLAIN" />
+			<field name="max_amount" type="text" label="VMPAYMENT_CECA_MAX_AMOUNT" description="VMPAYMENT_CECA_MAX_AMOUNT_EXPLAIN" />
+			<field name="cost_per_transaction" type="text" label="VMPAYMENT_CECA_COST_PER_TRANSACTION" description="VMPAYMENT_CECA_COST_PER_TRANSACTION_EXPLAIN" />
+			<field name="cost_percent_total" type="text" label="VMPAYMENT_CECA_COST_PERCENT_TOTAL" description="VMPAYMENT_CECA_COST_PERCENT_TOTAL_EXPLAIN" />
+			<field name="tax_id" type="vmtaxes" scope="com_virtuemart" label="VMPAYMENT_CECA_TAX" description="VMPAYMENT_CECA_TAX_EXPLAIN" />
+			</fieldset>
+			<fieldset name="orderstatus">
+				<field type="vmtitle" default="VMPAYMENT_CECA_TITLE_ORDERS"/>
+			<field name="status_pending" type="vmorderstate" scope="com_virtuemart" default="P" label="VMPAYMENT_CECA_STATUS_PENDING" description="VMPAYMENT_CECA_STATUS_PENDING_EXPLAIN" />
+			<field name="status_success" type="vmorderstate" scope="com_virtuemart" default="C" label="VMPAYMENT_CECA_STATUS_SUCCESS" description="VMPAYMENT_CECA_STATUS_SUCCESS_EXPLAIN" />
+			<field name="status_canceled" type="vmorderstate" scope="com_virtuemart" default="X" label="VMPAYMENT_CECA_STATUS_FAILED" description="VMPAYMENT_CECA_STATUS_FAILED_EXPLAIN" />
+			</fieldset>
+			<fieldset name="debug">
+				<field type="vmtitle" default="VMPAYMENT_CECA_TITLE_DEBUG"/>
+			<field name="debug" type="radio" default="0" label="VMPAYMENT_CECA_DEBUG" description="VMPAYMENT_CECA_DEBUG_DET">
+				<option value="0">VMPAYMENT_CECA_NO</option>
+				<option value="1">VMPAYMENT_CECA_YES</option>
+			</field>
+			</fieldset>
+		</fields>
+	</vmconfig>
+</extension>
