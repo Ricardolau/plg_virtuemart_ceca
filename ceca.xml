@@ -66,12 +66,17 @@
 				<option value="1">VMPAYMENT_CECA_YES</option>
 			</field>
 			</fieldset>
+<!--
 			<fieldset name="restrictions">
 				<field type="vmtitle" default="VMPAYMENT_CECA_TITLE_RESTRICTIONS"/>
 			<field name="payment_currency" type="vmacceptedcurrency" default="" label="VMPAYMENT_CECA_CURRENCY" description="VMPAYMENT_CECA_CURRENCY_DET" />
 			<field name="countries" type="vmcountries" scope="com_virtuemart" default="" label="VMPAYMENT_CECA_COUNTRIES" description="VMPAYMENT_CECA_COUNTRIES_DET" />
 			<field name="min_amount" type="text" label="VMPAYMENT_CECA_MIN_AMOUNT" description="VMPAYMENT_CECA_MIN_AMOUNT_EXPLAIN" />
 			<field name="max_amount" type="text" label="VMPAYMENT_CECA_MAX_AMOUNT" description="VMPAYMENT_CECA_MAX_AMOUNT_EXPLAIN" />
+            </fieldset>
+-->
+            <fieldset name="fee">
+
 			<field name="cost_per_transaction" type="text" label="VMPAYMENT_CECA_COST_PER_TRANSACTION" description="VMPAYMENT_CECA_COST_PER_TRANSACTION_EXPLAIN" />
 			<field name="cost_percent_total" type="text" label="VMPAYMENT_CECA_COST_PERCENT_TOTAL" description="VMPAYMENT_CECA_COST_PERCENT_TOTAL_EXPLAIN" />
 			<field name="tax_id" type="vmtaxes" scope="com_virtuemart" label="VMPAYMENT_CECA_TAX" description="VMPAYMENT_CECA_TAX_EXPLAIN" />
