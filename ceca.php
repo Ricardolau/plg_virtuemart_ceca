@@ -248,8 +248,24 @@ class plgVmPaymentCECA extends vmPSPlugin {
 		
 		//$amount = $cart_prices['salesPrice'];
 		$amount = $this->getCartAmount($cart_prices);
-		$amount_cond = ($amount >= $method->min_amount AND $amount <= $method->max_amount OR ($method->min_amount <= $amount AND ($method->max_amount == 0)));
-		if(!$amount_cond) {
+		
+
+
+		if ( $method->max_amount== null){
+			//Compruebo si el maximo no tiene valor, le pongo el valor 0
+			$method->max_amount = 0;
+		}
+		if ( $method->min_amount== null){
+			//Compruebo si el mínimo no tiene valor, le pongo el valor 0
+			$method->min_amount = 0;	
+		}
+
+		$amount_cond = (($amount >= $method->min_amount && $amount <= $method->max_amount) || ($method->min_amount <= $amount && ($method->max_amount == 0)));
+
+		
+
+		if(!$amount_cond) {			
+		    error_log('No se muestra forma de pago porque no se cumple una de las condiciones');
 			return false;
 		}
 		$countries = array();
